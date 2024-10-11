@@ -1,0 +1,33 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x", "debian-openssl-1.1.x"]
+}
+
+model User {
+  id       String   @id @default(uuid()) @map("_id")
+  joinedAt DateTime @default(now()) @map("createdAt")
+  username String   @unique
+  email    String   @unique
+  password String
+
+  tasks Task[] @relation("Task")
+
+  @@map("users")
+}
+
+model Task {
+  id          String   @id @default(uuid()) @map("_id")
+  title       String
+  status      String   @default("Pending")
+  description String
+  createdAt   DateTime @default(now())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], name: "Task")
+
+  @@map("task")
+}

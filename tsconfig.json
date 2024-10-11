@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "typeRoots": [
+      "./src/@types",
+      "./@types",
+      "./node_modules/@types"
+    ],
+    "sourceMap": true,
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "paths": {
+      "@database/*": ["./database/*"],
+      "@middlewares/*": ["./middlewares/*"],
+      "@migrations/*": ["./migrations/*"],
+      "@modules/*": ["./modules/*"],
+      "@routes/*": ["./routes/*"],
+      "@types/*": ["./@types/*"]
+    },
+    "outDir": "./dist",
+    "strict": true,
+    "lib": ["esnext"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  }
+}

@@ -1,0 +1,7 @@
+node_modules
+yarn.lock
+yarn-error.log
+package-lock.json
+prisma/.env
+src/nextjs-blog-mongodb-firebase-adminsdk-n6drx-2854f6410e.json
+/dist
